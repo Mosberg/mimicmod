@@ -1,0 +1,6 @@
+{
+  "parent": "mimicmod:entity/mimic_classic",
+  "textures": {
+    "particle": "mimicmod:entity/mimic_ender"
+  }
+}

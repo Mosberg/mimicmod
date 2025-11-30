@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:cookie"
+    },
+    "title": {
+      "translate": "advancements.mimicmod.christmas_mimic.title"
+    },
+    "description": {
+      "translate": "advancements.mimicmod.christmas_mimic.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "mimicmod:mimic_variants",
+  "criteria": {
+    "encountered_christmas": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "entity": {
+          "type": "mimicmod:mimic",
+          "nbt": "{Variant:\"christmas\"}"
+        }
+      }
+    }
+  },
+  "rewards": {
+    "experience": 50
+  }
+}

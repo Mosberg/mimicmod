@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "mimicmod:mimic_tooth"
+    },
+    "title": {
+      "translate": "advancements.mimicmod.mimic_collector.title"
+    },
+    "description": {
+      "translate": "advancements.mimicmod.mimic_collector.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "mimicmod:mimic_hunter",
+  "criteria": {
+    "has_64_teeth": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["mimicmod:mimic_tooth"],
+            "count": {
+              "min": 64
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 75
+  }
+}

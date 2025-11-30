@@ -1,0 +1,88 @@
+{
+  "spawn_rates": {
+    "classic": 0.7,
+    "corrupted": 0.2,
+    "ender": 0.08,
+    "christmas": 0.02
+  },
+  "christmas_dates": ["12-24", "12-25", "12-26"],
+  "combat_scaling": {
+    "health_base": 24.0,
+    "health_per_difficulty": 8.0,
+    "damage_base": 4.0,
+    "damage_per_difficulty": 2.0,
+    "experience_base": 10
+  },
+  "biome_weights": {
+    "minecraft:plains": 1.0,
+    "minecraft:forest": 1.2,
+    "minecraft:dark_forest": 1.8,
+    "minecraft:swamp": 1.5,
+    "minecraft:taiga": 1.1,
+    "minecraft:jungle": 1.3,
+    "minecraft:desert": 0.7,
+    "minecraft:savanna": 0.8,
+    "minecraft:badlands": 0.9,
+    "minecraft:mushroom_fields": 0.3,
+    "minecraft:the_nether": 0.0,
+    "minecraft:the_end": 0.0,
+    "minecraft:deep_dark": 2.5,
+    "minecraft:dripstone_caves": 1.6,
+    "minecraft:lush_caves": 1.4
+  },
+  "variant_multipliers": {
+    "classic": {
+      "health": 1.0,
+      "damage": 1.0,
+      "experience": 1.0
+    },
+    "corrupted": {
+      "health": 1.5,
+      "damage": 1.4,
+      "experience": 2.0
+    },
+    "ender": {
+      "health": 2.0,
+      "damage": 1.8,
+      "experience": 3.0
+    },
+    "christmas": {
+      "health": 1.2,
+      "damage": 1.1,
+      "experience": 1.5
+    }
+  },
+  "spawn_settings": {
+    "min_group_size": 1,
+    "max_group_size": 1,
+    "spawn_weight": 8,
+    "min_light_level": 0,
+    "max_light_level": 7,
+    "spawn_in_dungeon": true,
+    "spawn_in_mineshaft": true,
+    "spawn_in_stronghold": true
+  },
+  "behavior": {
+    "idle_sound_interval_ticks": 200,
+    "reveal_on_attack": true,
+    "can_disguise_again": false,
+    "aggro_range": 24.0,
+    "movement_speed": 0.23
+  },
+  "loot_settings": {
+    "always_drop_tooth": true,
+    "tooth_drop_chance": 0.8,
+    "rare_book_drop_chance": {
+      "classic": 0.15,
+      "corrupted": 0.25,
+      "ender": 0.3,
+      "christmas": 0.5
+    },
+    "looting_multiplier": 0.5
+  },
+  "debug": {
+    "enable_spawn_logging": false,
+    "enable_combat_logging": false,
+    "show_hitboxes": false
+  }
+}

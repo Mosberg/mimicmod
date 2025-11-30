@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:skeleton_skull"
+    },
+    "title": {
+      "translate": "advancements.mimicmod.mimic_greed.title"
+    },
+    "description": {
+      "translate": "advancements.mimicmod.mimic_greed.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "mimicmod:mimic_too_good",
+  "criteria": {
+    "killed_by_mimic": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {
+        "entity": {
+          "type": "mimicmod:mimic"
+        }
+      }
+    }
+  }
+}

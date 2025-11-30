@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:ender_pearl"
+    },
+    "title": {
+      "translate": "advancements.mimicmod.enderian_codex.title"
+    },
+    "description": {
+      "translate": "advancements.mimicmod.enderian_codex.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "mimicmod:cursed_tome",
+  "criteria": {
+    "has_enderian_codex": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:book"],
+            "components": {
+              "minecraft:custom_name": "{\"text\":\"Enderian Codex\",\"italic\":false,\"color\":\"dark_aqua\"}"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 25
+  }
+}

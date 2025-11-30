@@ -1,24 +1,41 @@
 package com.mimicmod;
 
+import com.mimicmod.config.MimicConfig;
+import com.mimicmod.registry.*;
 import net.fabricmc.api.ModInitializer;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Main mod class for Mimic Mod.
+ * Handles initialization of all mod components.
+ */
 public class MimicMod implements ModInitializer {
-	public static final String MOD_ID = "mimicmod";
 
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static final String MODID = "mimicmod";
+	public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
+
+	public static MimicConfig CONFIG;
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+		long startTime = System.currentTimeMillis();
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Initializing Mimic Mod...");
+
+		// Load configuration first
+		CONFIG = MimicConfig.load();
+		CONFIG.logConfiguration();
+
+		// Register mod content
+		ModItems.register();
+		ModSounds.register();
+		ModEntities.register();
+		ModEntities.registerAttributes();
+		ModLootTables.register();
+		ModCommands.register();
+
+		long duration = System.currentTimeMillis() - startTime;
+		LOGGER.info("Mimic Mod initialized successfully in {}ms", duration);
 	}
 }

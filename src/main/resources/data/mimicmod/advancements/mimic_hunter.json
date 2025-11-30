@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:iron_sword"
+    },
+    "title": {
+      "translate": "advancements.mimicmod.mimic_hunter.title"
+    },
+    "description": {
+      "translate": "advancements.mimicmod.mimic_hunter.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "mimicmod:mimic_too_good",
+  "criteria": {
+    "killed_mimic": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "mimicmod:mimic"
+        }
+      }
+    }
+  }
+}

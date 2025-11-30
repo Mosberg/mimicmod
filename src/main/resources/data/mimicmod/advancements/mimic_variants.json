@@ -1,0 +1,59 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:ender_eye"
+    },
+    "title": {
+      "translate": "advancements.mimicmod.mimic_variants.title"
+    },
+    "description": {
+      "translate": "advancements.mimicmod.mimic_variants.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "mimicmod:mimic_hunter",
+  "criteria": {
+    "killed_classic": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "mimicmod:mimic",
+          "nbt": "{Variant:\"classic\"}"
+        }
+      }
+    },
+    "killed_corrupted": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "mimicmod:mimic",
+          "nbt": "{Variant:\"corrupted\"}"
+        }
+      }
+    },
+    "killed_ender": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "mimicmod:mimic",
+          "nbt": "{Variant:\"ender\"}"
+        }
+      }
+    },
+    "killed_christmas": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "mimicmod:mimic",
+          "nbt": "{Variant:\"christmas\"}"
+        }
+      }
+    }
+  },
+  "rewards": {
+    "experience": 100
+  }
+}

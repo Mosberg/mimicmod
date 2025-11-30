@@ -1,0 +1,35 @@
+{
+  "mimic_idle": {
+    "sounds": [
+      {
+        "name": "mimicmod:mimic_idle",
+        "stream": false,
+        "volume": 0.8,
+        "pitch": 1.0
+      }
+    ],
+    "subtitle": "subtitles.mimicmod.mimic_idle"
+  },
+  "mimic_reveal": {
+    "sounds": [
+      {
+        "name": "mimicmod:mimic_reveal",
+        "stream": false,
+        "volume": 1.0,
+        "pitch": 1.0
+      }
+    ],
+    "subtitle": "subtitles.mimicmod.mimic_reveal"
+  },
+  "mimic_attack": {
+    "sounds": [
+      {
+        "name": "mimicmod:mimic_attack",
+        "stream": false,
+        "volume": 0.9,
+        "pitch": 1.0
+      }
+    ],
+    "subtitle": "subtitles.mimicmod.mimic_attack"
+  }
+}

@@ -1,3 +1,54 @@
 {
-  "entity.mimicmod.mimic": "Mimic"
+  "item.mimicmod.mimic_tooth": "Mimic Tooth",
+
+  "entity.mimicmod.mimic": "Mimic",
+
+  "subtitles.mimicmod.mimic_idle": "Mimic breathes",
+  "subtitles.mimicmod.mimic_reveal": "Mimic reveals itself",
+  "subtitles.mimicmod.mimic_attack": "Mimic attacks",
+
+  "advancements.mimicmod.mimic_root.title": "False Treasure",
+  "advancements.mimicmod.mimic_root.description": "Something about this chest feels wrong...",
+
+  "advancements.mimicmod.mimic_too_good.title": "Too Good To Be True",
+  "advancements.mimicmod.mimic_too_good.description": "Discover treasure that bites back",
+
+  "advancements.mimicmod.mimic_greed.title": "Greed's Punishment",
+  "advancements.mimicmod.mimic_greed.description": "Be killed by a Mimic",
+
+  "advancements.mimicmod.mimic_hunter.title": "Mimic Hunter",
+  "advancements.mimicmod.mimic_hunter.description": "Defeat your first Mimic",
+
+  "advancements.mimicmod.mimic_slayer.title": "Mimic Slayer",
+  "advancements.mimicmod.mimic_slayer.description": "Defeat 10 Mimics",
+
+  "advancements.mimicmod.mimic_variants.title": "Know Your Enemy",
+  "advancements.mimicmod.mimic_variants.description": "Encounter all Mimic variants",
+
+  "advancements.mimicmod.mimic_collector.title": "Tooth Collector",
+  "advancements.mimicmod.mimic_collector.description": "Collect 64 Mimic Teeth",
+
+  "advancements.mimicmod.cursed_tome.title": "Forbidden Knowledge",
+  "advancements.mimicmod.cursed_tome.description": "Obtain a Cursed Tome",
+
+  "advancements.mimicmod.corrupted_grimoire.title": "Corruption Scholar",
+  "advancements.mimicmod.corrupted_grimoire.description": "Obtain a Corrupted Grimoire from a Corrupted Mimic",
+
+  "advancements.mimicmod.enderian_codex.title": "Enderian Scholar",
+  "advancements.mimicmod.enderian_codex.description": "Obtain an Enderian Codex from an Ender Mimic",
+
+  "advancements.mimicmod.christmas_mimic.title": "Naughty or Nice?",
+  "advancements.mimicmod.christmas_mimic.description": "Encounter a Christmas Mimic during the holidays",
+
+  "death.attack.mimicmod.mimic": "%1$s was devoured by a Mimic",
+  "death.attack.mimicmod.mimic.player": "%1$s was devoured by a Mimic whilst fighting %2$s",
+
+  "commands.mimic.spawn.success": "Spawned %s mimic at your location",
+  "commands.mimic.setvariant.success": "Set mimic variant to %s",
+  "commands.mimic.reveal.success": "Revealed the mimic",
+  "commands.mimic.hide.success": "Hid the mimic",
+  "commands.mimic.killall.success": "Killed %s mimic(s)",
+  "commands.mimic.config.reload.success": "Configuration reloaded successfully",
+  "commands.mimic.error.not_mimic": "Target entity is not a mimic",
+  "commands.mimic.error.player_only": "This command must be run by a player"
 }

@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:enchanted_book"
+    },
+    "title": {
+      "translate": "advancements.mimicmod.corrupted_grimoire.title"
+    },
+    "description": {
+      "translate": "advancements.mimicmod.corrupted_grimoire.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "mimicmod:cursed_tome",
+  "criteria": {
+    "has_corrupted_grimoire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:book"],
+            "components": {
+              "minecraft:custom_name": "{\"text\":\"Corrupted Grimoire\",\"italic\":false,\"color\":\"dark_purple\"}"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 25
+  }
+}
