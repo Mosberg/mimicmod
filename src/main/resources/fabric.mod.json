@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "mimicmod",
+  "version": "${version}",
+  "name": "Mimic Mod",
+  "description": "Adds mimics disguised as chests into Minecraft.",
+  "authors": ["Mosberg"],
+  "contact": {
+    "homepage": "https://mosberg.github.io/",
+    "sources": "https://mosberg.github.io/src/minecraft/mods/mimicmod/README.md"
+  },
+  "license": "Copyright (c) 2025 Mosberg All rights reserved.",
+  "icon": "assets/mimicmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.mimicmod.MimicMod"],
+    "client": ["com.mimicmod.MimicModClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "~1.21.10",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
