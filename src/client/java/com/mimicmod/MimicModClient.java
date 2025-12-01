@@ -3,6 +3,7 @@ package com.mimicmod;
 import com.mimicmod.entity.client.MimicEntityModel;
 import com.mimicmod.entity.client.MimicEntityRenderer;
 import com.mimicmod.registry.ModEntities;
+
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.render.entity.EntityRendererFactories;
@@ -19,11 +20,12 @@ public class MimicModClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		MimicMod.LOGGER.info("Initializing Mimic Mod client...");
 
-		// Register entity model layer
-		registerModelLayers();
-
-		// Register entity renderers
-		registerRenderers();
+		try {
+			registerModelLayers();
+			registerRenderers();
+		} catch (Exception e) {
+			MimicMod.LOGGER.error("Error during entity model or renderer registration", e);
+		}
 
 		long duration = System.currentTimeMillis() - START_TIME;
 		MimicMod.LOGGER.info("Mimic Mod client initialized successfully in {}ms", duration);

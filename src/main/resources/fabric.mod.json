@@ -7,7 +7,7 @@
   "authors": ["Mosberg"],
   "contact": {
     "homepage": "https://mosberg.github.io/",
-    "sources": "https://github.com/mosberg/mimicmod",
+    "sources": "https://github.com/Mosberg/mimicmod",
     "issues": "https://github.com/mosberg/mimicmod/issues"
   },
   "license": "All Rights Reserved",
@@ -19,7 +19,7 @@
   },
   "mixins": [],
   "depends": {
-    "fabricloader": ">=0.16.0",
+    "fabricloader": "0.18.1",
     "minecraft": "~1.21.1",
     "java": ">=21",
     "fabric-api": "*"

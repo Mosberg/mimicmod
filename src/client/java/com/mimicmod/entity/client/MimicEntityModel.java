@@ -68,7 +68,7 @@ public class MimicEntityModel extends EntityModel<MimicRenderState> {
                 // Minecraft coordinates: [-7, 0, -7] to [7, 10, 7]
                 ModelPartData base = modelPartData.addChild("base",
                                 ModelPartBuilder.create()
-                                                .uv(0, 19)
+                                                .uv(0, 0)
                                                 .cuboid(-7.0F, 0.0F, -7.0F, 14.0F, 10.0F, 14.0F, new Dilation(0.0F)),
                                 ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
 
@@ -77,7 +77,7 @@ public class MimicEntityModel extends EntityModel<MimicRenderState> {
                 // Rotation origin: [8, 9, 15] (back edge center)
                 ModelPartData lid = modelPartData.addChild("lid",
                                 ModelPartBuilder.create()
-                                                .uv(0, 0)
+                                                .uv(0, 24)
                                                 .cuboid(-7.0F, -5.0F, -14.0F, 14.0F, 5.0F, 14.0F, new Dilation(0.0F)),
                                 ModelTransform.of(0.0F, 9.0F, 7.0F, 0.0F, 0.0F, 0.0F));
 
@@ -86,8 +86,8 @@ public class MimicEntityModel extends EntityModel<MimicRenderState> {
                 // Child of lid for attachment
                 lid.addChild("latch",
                                 ModelPartBuilder.create()
-                                                .uv(0, 0)
-                                                .cuboid(-1.0F, -2.0F, -15.0F, 2.0F, 4.0F, 1.0F, new Dilation(0.0F)),
+                                                .uv(0, 43)
+                                                .cuboid(-1.0F, 7.0F, -8.0F, 2.0F, 4.0F, 1.0F, new Dilation(0.0F)),
                                 ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
 
                 // Teeth upper (on inside of lid)
@@ -96,8 +96,8 @@ public class MimicEntityModel extends EntityModel<MimicRenderState> {
                 // Child of lid so teeth move with lid when opening
                 lid.addChild("teeth_upper",
                                 ModelPartBuilder.create()
-                                                .uv(0, 38)
-                                                .cuboid(-6.0F, 0.0F, -13.0F, 12.0F, 1.0F, 1.0F, new Dilation(0.0F)),
+                                                .uv(0, 48)
+                                                .cuboid(-6.0F, 0.0F, -1.0F, 12.0F, 1.0F, 1.0F, new Dilation(0.0F)),
                                 ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
 
                 // Teeth lower (on inside of base)
@@ -105,8 +105,8 @@ public class MimicEntityModel extends EntityModel<MimicRenderState> {
                 // Child of base so teeth stay fixed
                 base.addChild("teeth_lower",
                                 ModelPartBuilder.create()
-                                                .uv(0, 40)
-                                                .cuboid(-6.0F, 10.0F, 6.0F, 12.0F, 1.0F, 1.0F, new Dilation(0.0F)),
+                                                .uv(0, 52)
+                                                .cuboid(-6.0F, 10.0F, 5.0F, 12.0F, 1.0F, 1.0F, new Dilation(0.0F)),
                                 ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
 
                 // Tongue (inside mouth cavity)
@@ -114,8 +114,8 @@ public class MimicEntityModel extends EntityModel<MimicRenderState> {
                 // Child of base so tongue stays in mouth
                 base.addChild("tongue",
                                 ModelPartBuilder.create()
-                                                .uv(0, 42)
-                                                .cuboid(-3.0F, 10.0F, -3.0F, 6.0F, 0.5F, 6.0F, new Dilation(0.0F)),
+                                                .uv(0, 56)
+                                                .cuboid(-3.0F, 10.0F, -3.0F, 6.0F, 1.0F, 6.0F, new Dilation(0.0F)),
                                 ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
 
                 return TexturedModelData.of(modelData, 64, 64);

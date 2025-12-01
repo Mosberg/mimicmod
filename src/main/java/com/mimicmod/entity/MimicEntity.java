@@ -13,15 +13,13 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-
-import java.util.Optional;
-
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -50,7 +48,7 @@ public class MimicEntity extends HostileEntity {
     private BlockPos lastBiomeCheckPos = null;
 
     // State tracking
-    private boolean statsApplied = Optional.of(false);
+    private boolean statsApplied = false;
     private int cachedIdleSoundInterval = -1;
 
     public MimicEntity(EntityType<? extends HostileEntity> type, World world) {
@@ -124,7 +122,7 @@ public class MimicEntity extends HostileEntity {
         // Apply stats on first server tick only
         if (!statsApplied) {
             applyScaledStatsFromWorld();
-            statsApplied = Optional.of(true);
+            statsApplied = true;
         }
 
         // Reveal on attack (if enabled and not already revealed)
@@ -174,7 +172,6 @@ public class MimicEntity extends HostileEntity {
         if (lastBiomeCheckPos == null ||
                 pos.getX() >> 4 != lastBiomeCheckPos.getX() >> 4 ||
                 pos.getZ() >> 4 != lastBiomeCheckPos.getZ() >> 4) {
-
             RegistryEntry<Biome> biomeEntry = this.getEntityWorld().getBiome(pos);
             cachedBiomeId = biomeEntry.getKey()
                     .map(key -> key.getValue().toString())
@@ -201,7 +198,6 @@ public class MimicEntity extends HostileEntity {
 
         // Batch attribute updates
         this.setHealth((float) health);
-
         EntityAttributeInstance damageAttr = this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE);
         if (damageAttr != null) {
             damageAttr.setBaseValue(damage);
@@ -240,6 +236,19 @@ public class MimicEntity extends HostileEntity {
     public void setVariant(MimicVariant variant) {
         this.cachedVariant = variant;
         this.dataTracker.set(VARIANT, variant.getId());
+    }
+
+    /**
+     * Sets the variant by string ID.
+     * Updates both the cached enum and tracked data.
+     */
+    public void setVariant(String variantId) {
+        MimicVariant variant = MimicVariant.fromId(variantId);
+        if (variant != null) {
+            setVariant(variant);
+        } else {
+            MimicMod.LOGGER.warn("Unknown variant ID: {}", variantId);
+        }
     }
 
     /**
@@ -294,33 +303,43 @@ public class MimicEntity extends HostileEntity {
         return "ender".equals(cachedVariant.getId());
     }
 
-    // ===== NBT PERSISTENCE =====
+    // ===== DATA PERSISTENCE (FABRIC 1.21.10 API) =====
 
-    protected void readCustomDataFromNbt(NbtCompound nbt) {
-        // Read variant (stored as string for NBT compatibility)
-        Optional<String> variantId = nbt.getString("Variant");
-        cachedVariant = MimicVariant.fromId(variantId);
-        this.dataTracker.set(VARIANT, variantId);
-
-        // Read revealed state
-        if (nbt.contains("Revealed")) {
-            this.dataTracker.set(REVEALED, nbt.getBoolean("Revealed"));
+    /**
+     * Reads custom entity data from persistent storage.
+     * Uses Fabric 1.21.10 ReadView API instead of old NbtCompound.
+     */
+    protected void readCustomData(ReadView view) {
+        // Read variant - FABRIC 1.21.10: Use getString with fallback
+        String variantId = view.getString("Variant", MimicVariant.CLASSIC.getId());
+        MimicVariant variant = MimicVariant.fromId(variantId);
+        if (variant != null) {
+            cachedVariant = variant;
+            this.dataTracker.set(VARIANT, variantId);
+        } else {
+            MimicMod.LOGGER.warn("Failed to load variant from ReadView: {}", variantId);
         }
 
-        // Read stats applied flag
-        if (nbt.contains("StatsApplied")) {
-            statsApplied = nbt.getBoolean("StatsApplied");
-        }
+        // Read revealed state - FABRIC 1.21.10: Use getBoolean with fallback
+        boolean revealed = view.getBoolean("Revealed", false);
+        this.dataTracker.set(REVEALED, revealed);
+
+        // Read stats applied flag - FABRIC 1.21.10: Use getBoolean with fallback
+        statsApplied = view.getBoolean("StatsApplied", false);
     }
 
-    protected void writeCustomDataToNbt(NbtCompound nbt) {
+    /**
+     * Writes custom entity data to persistent storage.
+     * Uses Fabric 1.21.10 WriteView API instead of old NbtCompound.
+     */
+    protected void writeCustomData(WriteView view) {
         // Write variant
-        nbt.putString("Variant", cachedVariant.getId());
+        view.putString("Variant", cachedVariant.getId());
 
         // Write revealed state
-        nbt.putBoolean("Revealed", isRevealed());
+        view.putBoolean("Revealed", isRevealed());
 
         // Write stats applied flag
-        nbt.putBoolean("StatsApplied", statsApplied);
+        view.putBoolean("StatsApplied", statsApplied);
     }
 }

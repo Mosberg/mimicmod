@@ -56,9 +56,9 @@ public class BalanceUtils {
     /**
      * Calculates scaled health for a mimic entity.
      *
-     * @param world    World instance for difficulty
-     * @param biomeId  Biome identifier
-     * @param variant  Variant identifier
+     * @param world   World instance for difficulty
+     * @param biomeId Biome identifier
+     * @param variant Variant identifier
      * @return Scaled health value (minimum 1.0)
      */
     public static double getScaledHealth(World world, String biomeId, MimicVariant variant) {
@@ -72,8 +72,8 @@ public class BalanceUtils {
 
         if (config.debug.enable_combat_logging) {
             MimicMod.LOGGER.debug(
-                "Scaled health for {} in {}: result={}",
-                variant, biomeId, result);
+                    "Scaled health for {} in {}: result={}",
+                    variant, biomeId, result);
         }
 
         return Math.max(1.0, result);
@@ -82,9 +82,9 @@ public class BalanceUtils {
     /**
      * Calculates scaled damage for a mimic entity.
      *
-     * @param world    World instance for difficulty
-     * @param biomeId  Biome identifier
-     * @param variant  Variant identifier
+     * @param world   World instance for difficulty
+     * @param biomeId Biome identifier
+     * @param variant Variant identifier
      * @return Scaled damage value (minimum 0.5)
      */
     public static double getScaledDamage(World world, String biomeId, MimicVariant variant) {
@@ -98,8 +98,8 @@ public class BalanceUtils {
 
         if (config.debug.enable_combat_logging) {
             MimicMod.LOGGER.debug(
-                "Scaled damage for {} in {}: result={}",
-                variant, biomeId, result);
+                    "Scaled damage for {} in {}: result={}",
+                    variant, biomeId, result);
         }
 
         return Math.max(0.5, result);
@@ -120,8 +120,8 @@ public class BalanceUtils {
 
         if (config.debug.enable_combat_logging) {
             MimicMod.LOGGER.debug(
-                "Scaled experience for {}: result={}",
-                variant, result);
+                    "Scaled experience for {}: result={}",
+                    variant, result);
         }
 
         return Math.max(1, result);
@@ -156,8 +156,8 @@ public class BalanceUtils {
     /**
      * Calculates total loot multiplier based on variant and looting level.
      *
-     * @param variant       Variant identifier
-     * @param lootingLevel  Looting enchantment level (0-3)
+     * @param variant      Variant identifier
+     * @param lootingLevel Looting enchantment level (0-3)
      * @return Total loot multiplier
      */
     public static double getLootMultiplier(MimicVariant variant, int lootingLevel) {
@@ -221,7 +221,7 @@ public class BalanceUtils {
     public static boolean canSpawnInLight(int lightLevel) {
         MimicConfig config = getConfig();
         return lightLevel >= config.spawn_settings.min_light_level
-            && lightLevel <= config.spawn_settings.max_light_level;
+                && lightLevel <= config.spawn_settings.max_light_level;
     }
 
     /**
